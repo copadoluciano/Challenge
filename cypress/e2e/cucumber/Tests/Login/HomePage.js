@@ -1,6 +1,5 @@
 import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps"
 
-
 before(function () {
   cy.fixture('home.json').then(function (home) {
     this.home = home
