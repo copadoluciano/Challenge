@@ -1,0 +1,10 @@
+{
+  "createItem": {
+    "imgBtn": "//input[@type='file']",
+    "descriptionField": "//textarea[@name='text']",
+    "createBtn": "//button[@class='btn pull-right btn-success']"
+  },
+  "list": {
+    "tittle": "//h1[@class='ng-binding']"
+  }
+}
