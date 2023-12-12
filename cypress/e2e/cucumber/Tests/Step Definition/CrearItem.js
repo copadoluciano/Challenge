@@ -20,7 +20,7 @@ When('el usuario crea la pelicula {word} con descripcion {word}', function (imag
 
 })
 
-Then('el item de la <word> y <word> se posiciona ultimo en la lista', function (imagen, descripcion) {
+Then('el item de la imagen {word} y descripcion {word} se posiciona ultimo en la lista', function (imagen, descripcion) {
   cy.validarNuevoItem(cantItems)
-  cy.validarItem(item, imagen, descripcion)
+  cy.validarItem(cantItems, imagen, descripcion)
 })

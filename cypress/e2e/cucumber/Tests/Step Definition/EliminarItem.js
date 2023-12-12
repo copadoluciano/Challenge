@@ -10,7 +10,7 @@ let datos = []
 When('el usuario elimina el item de la posicion {word}', function (posicion) {
   cy.tomarDatos(posicion).then((items) => {
     datos = items
-    cy.log(datos)
+
   })
   cy.eliminarItem(posicion)
 })

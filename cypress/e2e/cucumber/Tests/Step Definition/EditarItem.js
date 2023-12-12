@@ -7,10 +7,10 @@ before(function () {
 })
 
 
-When('el usuario edita el item existente {word} con la imagen {word} y la descripcion {word}', function (item, imagen, descripcion) {
+When('el usuario edita el item existente {word} con la imagen {word} y la descripcion {string}', function (item, imagen, descripcion) {
   cy.editarItem(item, imagen, descripcion)
 })
 
-Then('se visualiza el cambio del item {word} con la imagen {word} y la descripcion {word}', function (item, imagen, descripcion) {
+Then('se visualiza el cambio del item {word} con la imagen {word} y la descripcion {string}', function (item, imagen, descripcion) {
   cy.validarItem(item, imagen, descripcion)
 })
