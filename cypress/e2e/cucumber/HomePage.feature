@@ -3,12 +3,12 @@ Feature: Home Test Cases
   Background: Navigate to website
     Given the user is in the web application
 
-  # Scenario Outline: Create a new item
-  #   When the user creates the movie <picture> with description <description>
-  #   Then the image <imagen> and description <description> is positioned last in the list
-  #   Examples:
-  #     | picture       | description |
-  #     | gladiador.jpg | Gladiador   |
+  Scenario Outline: Create a new item
+    When the user creates the movie <picture> with description <description>
+    Then the image <imagen> and description <description> is positioned last in the list
+    Examples:
+      | picture       | description |
+      | gladiador.jpg | Gladiador   |
 
 
 
