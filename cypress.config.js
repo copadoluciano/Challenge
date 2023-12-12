@@ -5,7 +5,7 @@ module.exports = defineConfig({
     chromeWebSecurity: false,
     failOnUncaughtException: false,
     defaultCommandTimeout: 10000,  // Ajusta el tiempo de espera según tus necesidades
-    retries: 2,
+    //retries: 2, // intentos
     watchForFileChanges: false,
     baseUrl: "https://immense-hollows-74271.herokuapp.com/",
     supportFile: "cypress/support/index.js",

@@ -1,0 +1,38 @@
+Bug 1
+Summary: Photo modification does not work.
+Description: When the user modifies the photo of an item, the change is not reflected.
+Priority: Medium
+Reporter: Luciano Copado
+Environment: Prod
+
+Test Case: 
+Given the user is in the web application
+When the user modifies the photo of an item
+Then the change is reflected immediately
+
+
+Bug 2
+Summary: Photo dimension validations do not work
+Description: When the user modifies the photo of an item, can use photos with dimensions different than those allowed
+Priority: Medium
+Reporter: Luciano Copado
+Environment: Prod
+
+Test Case: 
+Given the user is in the web application
+When the user uploads a photo outside the allowed dimensions
+Then the user will receive an informational alert
+
+Bug 3
+Summary: Duplicate Items
+Description: The user can upload existing photos and texts
+Priority: Medium
+Reporter: Luciano Copado
+Environment: Prod
+
+Test Case: 
+Given the user is in the web application
+When When the user uploads an existing photo or text
+Then the user will receive an informational alert
+
+

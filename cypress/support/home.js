@@ -13,7 +13,7 @@ Cypress.Commands.add('subirArchivo', function (imagen) {
 
 })
 
-Cypress.Commands.add('obtenerNumero', function (value) {
+Cypress.Commands.add('getPosition', function (value) {
     return cy.xpath(value).then(function (text) {
         let texto = text.text().match(/\d+/g);
         text = parseInt(texto)
@@ -21,58 +21,59 @@ Cypress.Commands.add('obtenerNumero', function (value) {
     })
 })
 
-Cypress.Commands.add('validarNuevoItem', function (cantItems) {
+Cypress.Commands.add('validateNewPosition', function (cantItems) {
     let items = cantItems + 1
     cy.xpath("(//p[@class='story ng-binding'])[" + items + "]").should('be.visible')
 })
 
-Cypress.Commands.add('editarItem', function (item, imagen, descripcion) {
-    cy.xpath("(//button[@class='btn btn-default' and text()='Edit'])[" + item + "]").click()
+Cypress.Commands.add('editarItem', function (position, imagen, descripcion) {
+    cy.xpath("(//button[@class='btn btn-default' and text()='Edit'])[" + position + "]").click()
     cy.subirArchivo(imagen)
-    cy.xpath(this.home.createItem.descriptionField).clear().type(descripcion)
+    cy.xpath(this.home.createItem.descriptionField).clear()
+    cy.wait(1000)
+    cy.xpath(this.home.createItem.descriptionField).type(descripcion)
     cy.xpath(this.home.createItem.createBtn).click()
 })
 
-Cypress.Commands.add('validarItem', function (item, imagen, descripcion) {
-    let items = item + 1
+Cypress.Commands.add('validateItem', function (position, imagen, descripcion) {
     // validar descripcion
-    cy.xpath("(//DIV[@class='media-left'])[" + item + "]//P[@class='story ng-binding'][text()='" + descripcion + "']").should('be.visible')
+    cy.xpath("(//DIV[@class='media-left'])[" + position + "]//P[@class='story ng-binding'][text()='" + descripcion + "']").should('be.visible')
     // validar foto (aunque la foto no se modifica por la nueva)
-    cy.xpath("(//DIV[@class='media-left'])[" + item + "]//IMG[contains(@src,'jpg')]").should('be.visible')
+    cy.xpath("(//DIV[@class='media-left'])[" + position + "]//IMG[contains(@src,'jpg')]").should('be.visible')
 
 })
 
-Cypress.Commands.add('tomarDatos', function (posicion) {
-    let datos = []
-    cy.xpath("(//DIV[@class='media-left'])[" + posicion + "]").then(function (text) {
+Cypress.Commands.add('takeData', function (position) {
+    let data = []
+    cy.xpath("(//DIV[@class='media-left'])[" + position + "]").then(function (text) {
         let texto = text.text()
-        texto = texto.replace(' ', '').replace('Edit', '').replace('Delete', '')
-        datos.push(texto);
-        cy.xpath("(//IMG[contains(@src,'jpg')])[" + posicion + "]").invoke('attr', 'src').then(function (srcValue) {
+        texto = texto.replace('Edit', '').replace('Delete', '').trim()
+        data.push(texto);
+        cy.xpath("(//IMG[contains(@src,'jpg')])[" + position + "]").invoke('attr', 'src').then(function (srcValue) {
             let texto = text.text()
-            datos.push(srcValue);
-            return datos
+            data.push(srcValue);
+            return data
         })
     })
 
 })
 
-Cypress.Commands.add('eliminarItem', function (posicion) {
-    cy.xpath("(//BUTTON[@type='button'][text()='Delete'])[" + posicion + "]").click()
+Cypress.Commands.add('deleteItem', function (position) {
+    cy.xpath("(//BUTTON[@type='button'][text()='Delete'])[" + position + "]").click()
     cy.xpath("//BUTTON[@class='btn btn-primary'][text()='Yes, delete it!']").click()
 })
 
-Cypress.Commands.add('validarDelete', function (posicion, datos) {
-    cy.xpath("//DIV[@class='media-left' and contains(@text,'" + datos[0] + "')]").should('not.exist')
-    cy.xpath("//IMG[contains(@src,'" + datos[1] + "')]").should('not.exist')
+Cypress.Commands.add('validateDelete', function (position, data) {
+    cy.xpath("//DIV[@class='media-left' and contains(@text,'" + data[0] + "')]", {timeout: 20000}).should('not.exist')
+    cy.xpath("//IMG[contains(@src,'" + data[1] + "')]", {timeout: 20000}).should('not.exist')
 })
 
-Cypress.Commands.add('checkCaracters', function (longitud) {
-    cy.xpath("//textarea[@rows='10']").invoke('attr', 'ng-maxlength').should('eq', longitud);
+Cypress.Commands.add('checkCaracters', function (length) {
+    cy.xpath("//textarea[@rows='10']").invoke('attr', 'ng-maxlength').should('eq', length);
 
 })
 
 Cypress.Commands.add('checkText', function (string) {
-    cy.xpath("//p[contains(text,'"+string+"')]").should('be.visible')
+    cy.xpath("//p[contains(text(),'"+string+"')]").should('be.visible')
 
 })
