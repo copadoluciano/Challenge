@@ -44,6 +44,7 @@ Esto levantara un contenedor donde se instalara todo lo necesario para correr la
 ### Estructura
 
 cypress/e2e/cucumber/Tests: Contiene los archivos de prueba Cypress.
+
 cypress/e2e/cucumber/Tests: Contiene los BUGs y Test Cases
 
 cypress/fixtures: Contiene datos de prueba.
