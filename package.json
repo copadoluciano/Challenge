@@ -12,7 +12,7 @@
   },
   "scripts": {
     "test": "cypress run",
-    "docker_build": "docker pull cypress/included:12.3.0",
+    "docker_build": "docker-compose build",
     "docker_run": "docker-compose run cypress"
   },
   "author": "Luciano Copado",

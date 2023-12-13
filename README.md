@@ -35,7 +35,7 @@ Esto abrirá la interfaz de usuario de Cypress, donde podrás seleccionar y ejec
 
  ● Ejecucion con Docker Compose
  
-   npm run build_docker
+   npm run docker_build
    
    npm run docker_run
    

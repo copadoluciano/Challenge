@@ -11,5 +11,9 @@ RUN npm install
 # Copia el resto de los archivos al contenedor
 COPY . .
 
+# Ejecuta comandos adicionales si es necesario
+docker-compose build
+docker-compose run cypress
+
 # Establece el comando predeterminado para ejecutar Cypress
 CMD ["npm", "test"]
