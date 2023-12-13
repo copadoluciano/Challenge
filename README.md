@@ -42,11 +42,14 @@ Esto abrirá la interfaz de usuario de Cypress, donde podrás seleccionar y ejec
 Esto levantara un contenedor donde se instalara todo lo necesario para correr las pruebas.
 
 ### Estructura
-   
-cypress/e2e/Tests/Step_Definition: Contiene los archivos de prueba Cypress.
+
+cypress/e2e/cucumber/Tests: Contiene los archivos de prueba Cypress.
+cypress/e2e/cucumber/Tests: Contiene los BUGs y Test Cases
 
 cypress/fixtures: Contiene datos de prueba.
 
 cypress/support: Contiene archivos de soporte, como comandos personalizados y funciones de utilidad.
 
 cypress.config.json: Archivo de configuración principal de Cypress.
+
+cypress/e2e/Tests: Contiene los archivos de prueba Cypress.
