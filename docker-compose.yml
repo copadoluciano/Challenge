@@ -6,3 +6,6 @@ services:
     volumes:
       - .:/e2e
     command: ["cypress", "run", "--spec", "cypress/e2e/cucumber/*.feature", "--browser", "chrome"]
+    build:
+      context: .
+      dockerfile: Dockerfile
