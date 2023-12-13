@@ -13,7 +13,8 @@
     "dotenv": "^16.3.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build_docker": "docker pull cypress/included:12.3.0",
+    "docker_run": "docker-compose run cypress"
   },
   "author": "Luciano Copado",
   "license": "ISC",
