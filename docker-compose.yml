@@ -2,10 +2,10 @@ version: '3'
 services:
   cypress:
     # image: cypress/included:12.3.0
-    working_dir: /e2e
+    working_dir: /usr/src/app
     volumes:
       - .:/e2e
     build:
       context: .
       dockerfile: Dockerfile
-    command: ["cypress", "run", "--spec", "cypress/e2e/cucumber/*.feature", "--browser", "chrome"]
+    command: ["cypress", "run"]

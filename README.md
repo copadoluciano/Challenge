@@ -2,9 +2,13 @@
 
 Este proyecto utiliza [Cypress](https://www.cypress.io/) para la automatización de pruebas end-to-end.
 
-## Requisitos
+## Requisitos (Correr en Local)
 
 Asegúrate de tener instalado [Node.js](https://nodejs.org/) y [npm](https://www.npmjs.com/) en tu máquina.
+
+## Requisito (Correr en Docker)
+
+Asegúrate de tener instalado [Docker](https://www.docker.com/)
 
 ### Instalación
 
@@ -35,9 +39,9 @@ Esto abrirá la interfaz de usuario de Cypress, donde podrás seleccionar y ejec
 
  ● Ejecucion con Docker Compose
  
-   npm run docker_build
+   docker-compuse build
    
-   npm run docker_run
+   docker-compose up
    
 Esto levantara un contenedor donde se instalara todo lo necesario para correr las pruebas.
 
