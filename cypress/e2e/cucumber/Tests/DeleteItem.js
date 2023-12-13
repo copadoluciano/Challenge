@@ -4,7 +4,7 @@ let data = []
 When('the user deletes the item from position {word}', function (position) {
   cy.takeData(position).then((items) => {
     data = items
-
+    cy.log(data)
   })
   cy.deleteItem(position)
 })

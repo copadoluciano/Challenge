@@ -30,7 +30,7 @@ Cypress.Commands.add('editarItem', function (position, imagen, descripcion) {
     cy.xpath("(//button[@class='btn btn-default' and text()='Edit'])[" + position + "]").click()
     cy.subirArchivo(imagen)
     cy.xpath(this.home.createItem.descriptionField).clear()
-    cy.wait(1000)
+    cy.wait(3000)
     cy.xpath(this.home.createItem.descriptionField).type(descripcion)
     cy.xpath(this.home.createItem.createBtn).click()
 })
