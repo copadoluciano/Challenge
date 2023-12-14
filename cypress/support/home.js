@@ -64,7 +64,8 @@ Cypress.Commands.add('deleteItem', function (position) {
 })
 
 Cypress.Commands.add('validateDelete', function (position, data) {
-    cy.xpath("//DIV[@class='media-left' and contains(@text,'" + data[0] + "')]", {timeout: 20000}).should('not.exist')
+    cy.wait(3000)
+    cy.xpath("//DIV[@class='media-left' and contains(text,'" + data[0] + "')]", {timeout: 20000}).should('not.exist')
     cy.xpath("//IMG[contains(@src,'" + data[1] + "')]", {timeout: 20000}).should('not.exist')
 })
 
